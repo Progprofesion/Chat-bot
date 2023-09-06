@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.emoji}>
-        <Image src={smile} alt="GFG logo imported from public directory" />
+        <Image src={smile} alt="emojy" />
       </div>
       <input
         placeholder="Start typing..."
@@ -16,11 +16,8 @@ const Footer = () => {
         type="text"
       />
       <div className={styles.sendUpload}>
-        <Image src={mentios} alt="GFG logo imported from public directory" />
-        <Image
-          src={paperAirplane}
-          alt="GFG logo imported from public directory"
-        />
+        <Image src={mentios} alt="@" />
+        <Image src={paperAirplane} alt="Paper airplane" />
       </div>
     </footer>
   );

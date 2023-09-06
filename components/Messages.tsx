@@ -8,7 +8,7 @@ const Messages = () => {
   return (
     <section className={styles.messages}>
       <div className={styles.currentTime}>{data}</div>
-      <Message time={time} />
+      <Message message={"test"} time={time} />
     </section>
   );
 };
