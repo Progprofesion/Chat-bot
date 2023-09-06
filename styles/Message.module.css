@@ -1,0 +1,12 @@
+.message {
+    margin-right: 16px;
+    min-width: 130px;
+    background-color: #007AFF;
+    padding: 4px 8px;
+    float: right;
+    border-radius: 6px;
+}
+
+.time {
+    float: right;
+}

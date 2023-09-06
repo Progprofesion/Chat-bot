@@ -3,3 +3,10 @@
     height: 500px;
     background-color: aliceblue;
 }
+
+/* .content {} */
+
+.currentTime {
+    padding-top: 17px;
+    text-align: center;
+}
