@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 68px;
+}
+
+.imgWrapp {
+    margin-left: 13px;
+}
+
+.kebab {
+    all: unset;
+    cursor: pointer;
+    margin-right: 24px;
+}

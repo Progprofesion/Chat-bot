@@ -1,0 +1,34 @@
+.footer {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    max-width: 656px;
+    height: 48px;
+    background-color: aliceblue;
+}
+
+.emoji {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 48px;
+    margin-left: 12px;
+}
+
+.sendUpload {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 72px;
+    height: 100%;
+    margin-right: 12px;
+    padding: 0 12px;
+}
+
+
+.input {
+    width: 520px;
+    height: 20px;
+}
