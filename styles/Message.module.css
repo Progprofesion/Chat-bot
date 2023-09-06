@@ -1,4 +1,5 @@
 .message {
+    position: relative;
     margin-top: 51px;
     margin-right: 16px;
     min-width: 130px;
@@ -6,6 +7,8 @@
     padding: 4px 8px;
     float: right;
     border-radius: 6px;
+    color: #FFFFFF;
+    height: 39px;
 }
 
 .time {
@@ -18,4 +21,10 @@
 .mark {
     float: right;
     margin-left: 4px;
+}
+
+.bubbleTip {
+    position: absolute;
+    right: -9px;
+    top: -3px;
 }
