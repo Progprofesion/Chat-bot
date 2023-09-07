@@ -8,42 +8,41 @@ import paperAirplane from "../assets/icons/paper-airplane.svg";
 import useStore from "../store";
 
 const Footer = () => {
-  const [name, setName] = useState("");
-
+  const [message, setMessage] = useState("");
+  const messages = useStore((state) => state.messages);
   const addMessage = useStore((state) => state.addMessage);
-  const setTime = useStore((state) => state.setTime);
-
   const changeIsbot = useStore((state) => state.changeIsbot);
   const isBotMessage = useStore((state) => state.isBotMessage);
-
-  let currentTime = dayjs().format("h:mm A");
+  let time = dayjs().format("h:mm A");
 
   const onClick = (): void => {
-    addMessage(name);
-    setTime(currentTime);
-    setName("");
+    addMessage({ message: message, time: time });
+    setMessage("");
     changeIsbot(true);
+    if (typeof window !== "undefined") {
+      let data = JSON.stringify(messages);
+      localStorage.setItem("messages", data);
+    }
   };
 
   useEffect(() => {
     if (isBotMessage) {
-      addMessage("Hello World!");
+      addMessage({ message: "Hello World!", time: time });
       changeIsbot(!isBotMessage);
     }
   }, [isBotMessage]);
 
-  // console.log(time);
   return (
     <footer className={styles.footer}>
       <div className={styles.emoji}>
         <Image src={smile} alt="emojy" />
       </div>
       <input
-        value={name}
+        value={message}
         placeholder="Start typing..."
         className={styles.input}
         type="text"
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) => setMessage(e.target.value)}
       />
       <div className={styles.sendUpload}>
         <button className={styles.button}>

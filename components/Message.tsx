@@ -23,7 +23,8 @@ const Message = ({ time, message }: { time: string; message: string }) => {
       </div>
       <div className={styles.content}>{message}</div>
       <div className={styles.time}>
-        <p>{time}</p> <Image className={styles.mark} src={mark} alt="Mark" />
+        <div>{time}</div>
+        <Image className={styles.mark} src={mark} alt="Mark" />
       </div>
     </div>
   );

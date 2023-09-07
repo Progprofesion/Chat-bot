@@ -1,29 +1,38 @@
 import { create } from "zustand";
+import { getFromLocalStorage } from "../utils/getFromLocalStorage";
+
+interface Message {
+  id: number;
+  message: string;
+  time: string;
+}
 
 interface UseStore {
-  messages: string[];
-  time: string;
+  messages: Message[];
   isBotMessage: boolean;
-  addMessage: (message: string) => void;
+  addMessage: (messageData: { message: string; time: string }) => void;
   changeIsbot: (boolean: boolean) => void;
-  setTime: (time: string) => void;
 }
 
 const useStore = create<UseStore>((set) => ({
-  messages: [],
-  time: "",
+  messages: getFromLocalStorage("messages")
+    ? JSON.parse(getFromLocalStorage("messages") || "{}")
+    : [],
   isBotMessage: false,
-  addMessage: (message: string) =>
+  addMessage: (messageData: { message: string; time: string }) =>
     set((state) => ({
-      messages: [message, ...state.messages],
+      messages: [
+        {
+          id: Math.random() * 100,
+          message: messageData.message,
+          time: messageData.time,
+        },
+        ...state.messages,
+      ],
     })),
   changeIsbot: (boolean: boolean) =>
     set((state) => ({
       isBotMessage: (state.isBotMessage = boolean),
-    })),
-  setTime: (time: string) =>
-    set((state) => ({
-      time: (state.time = time),
     })),
 }));
 export default useStore;
