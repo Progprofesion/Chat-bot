@@ -12,3 +12,8 @@ body {
     width: 656px;
     margin: 0 auto;
 }
+
+button {
+    all: unset;
+    cursor: pointer;
+}

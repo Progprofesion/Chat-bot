@@ -1,6 +1,8 @@
 .message {
+    display: flex;
+    justify-content: space-between;
     position: relative;
-    margin-top: 51px;
+    margin-top: 6px;
     margin-right: 16px;
     min-width: 130px;
     background-color: #007AFF;
@@ -11,10 +13,11 @@
     height: 39px;
 }
 
+
 .time {
     float: right;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     font-size: 12px;
 }
 

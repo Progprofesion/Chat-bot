@@ -3,7 +3,7 @@ import styles from "../styles/Message.module.css";
 import mark from "../assets/icons/Frame 2882.svg";
 import bubbleTip from "../assets/icons/bubbleTip.svg";
 
-const Message = ({ time, message }) => {
+const Message = ({ time, message }: { time: string; message: string }) => {
   return (
     <div className={styles.message}>
       <div className={styles.bubbleTip}>
@@ -23,7 +23,7 @@ const Message = ({ time, message }) => {
       </div>
       <div className={styles.content}>{message}</div>
       <div className={styles.time}>
-        {time} <Image className={styles.mark} src={mark} alt="Mark" />
+        <p>{time}</p> <Image className={styles.mark} src={mark} alt="Mark" />
       </div>
     </div>
   );

@@ -5,14 +5,24 @@ import styles from "../styles/Messages.module.css";
 const Messages = () => {
   const messages = useStore((state) => state.messages);
   let data = dayjs().format("DD/MM/YYYY");
-  let time = dayjs().format("h:mm A");
-  console.log(messages);
+  // let time = dayjs().format("h:mm A");
+  let time = useStore((state) => state.time);
+
   return (
     <section className={styles.messages}>
       <div className={styles.currentTime}>{data}</div>
-      {messages.map((message) => {
-        return <Message message={message} time={time} />;
-      })}
+      <div className={styles.messagesWrapp}>
+        {messages.map((message: any, i) => {
+          for (let key in message) {
+            // console.log(message[key]);
+            return (
+              <div key={Math.random() * 1000}>
+                <Message message={key} time={message[key]} />
+              </div>
+            );
+          }
+        })}
+      </div>
     </section>
   );
 };

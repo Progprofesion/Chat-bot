@@ -32,3 +32,9 @@
     width: 520px;
     height: 20px;
 }
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

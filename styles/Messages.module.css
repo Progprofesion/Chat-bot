@@ -4,6 +4,15 @@
     background-color: aliceblue;
 }
 
+.messagesWrapp {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    margin-top: 51px;
+    width: 100%;
+    height: 100%;
+}
+
 /* .content {} */
 
 .currentTime {
