@@ -1,6 +1,7 @@
 import useStore from "../store";
 import dayjs from "dayjs";
 import Message from "./Message";
+import BotMessage from "./BotMessage";
 import styles from "../styles/Messages.module.css";
 const Messages = () => {
   const messages = useStore((state) => state.messages);
@@ -20,7 +21,11 @@ const Messages = () => {
                   }
                   key={Math.random() * 100}
                 >
-                  <Message message={message.message} time={message.time} />
+                  {message.isBot ? (
+                    <BotMessage message={message.message} time={message.time} />
+                  ) : (
+                    <Message message={message.message} time={message.time} />
+                  )}
                 </div>
               );
             })

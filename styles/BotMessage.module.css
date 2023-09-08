@@ -1,0 +1,52 @@
+.botMessage {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 6px;
+    margin-left: 61px;
+    min-width: 130px;
+    max-width: 315px;
+    background: #F2F2F7;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: #2C2C2E;
+    min-height: 39px;
+    word-wrap: break-word;
+}
+
+.avatar {
+    position: absolute;
+    top: 0;
+    left: -13px;
+    transform: translateX(-100%);
+}
+
+.online {
+    position: absolute;
+    top: 15px;
+    left: -13px;
+    transform: translateX(-100%);
+}
+
+
+.bubbleTip {
+    position: absolute;
+    left: -9px;
+    top: -3px;
+}
+
+.botMessage {
+    display: flex;
+}
+
+.currentTime {
+    padding-top: 17px;
+    text-align: center;
+}
+
+.time {
+    float: right;
+    display: flex;
+    align-items: flex-end;
+    font-size: 12px;
+}
