@@ -5,14 +5,15 @@
     margin-top: 6px;
     margin-right: 16px;
     min-width: 130px;
+    max-width: 315px;
     background-color: #007AFF;
     padding: 4px 8px;
     float: right;
     border-radius: 6px;
     color: #FFFFFF;
-    height: 39px;
+    min-height: 39px;
+    word-wrap: break-word;
 }
-
 
 .time {
     float: right;

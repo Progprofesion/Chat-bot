@@ -16,20 +16,18 @@ const Footer = () => {
   let time = dayjs().format("h:mm A");
 
   const onClick = (): void => {
-    addMessage({ message: message, time: time });
+    addMessage({ message: message, time: time, isBot: false });
     setMessage("");
     changeIsbot(true);
-    if (typeof window !== "undefined") {
-      let data = JSON.stringify(messages);
-      localStorage.setItem("messages", data);
-    }
   };
 
   useEffect(() => {
     if (isBotMessage) {
-      addMessage({ message: "Hello World!", time: time });
+      addMessage({ message: "Hello World!", time: time, isBot: true });
       changeIsbot(!isBotMessage);
     }
+    let data = JSON.stringify(messages);
+    localStorage.setItem("messages", data);
   }, [isBotMessage]);
 
   return (

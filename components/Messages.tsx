@@ -5,22 +5,27 @@ import styles from "../styles/Messages.module.css";
 const Messages = () => {
   const messages = useStore((state) => state.messages);
   let data = dayjs().format("DD/MM/YYYY");
-  let time = dayjs().format("h:mm A");
-
+  const isBotMessage = useStore((state) => state.isBotMessage);
   return (
     <section className={styles.messages}>
       <div className={styles.currentTime}>{data}</div>
-      <div className={styles.messagesWrapp}>
+      <ul className={styles.messagesWrapp}>
         {messages
           ? messages.map((message) => {
+              console.log(message);
               return (
-                <div key={Math.random() * 100}>
+                <div
+                  className={
+                    message.isBot ? styles.botMessage : styles.userMessage
+                  }
+                  key={Math.random() * 100}
+                >
                   <Message message={message.message} time={message.time} />
                 </div>
               );
             })
-          : []}
-      </div>
+          : null}
+      </ul>
     </section>
   );
 };
