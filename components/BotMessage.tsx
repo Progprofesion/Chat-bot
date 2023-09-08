@@ -28,7 +28,13 @@ const Message = ({ time, message }: { time: string; message: string }) => {
           />
         </svg>
       </div>
-      <div className={styles.content}>{message}</div>
+      <div className={styles.content}>
+        <div className={styles.titleWrapp}>
+          <p className={styles.name}>Jav</p>
+          <p className={styles.workStatus}>Bot</p>
+        </div>
+        {message}
+      </div>
       <div className={styles.time}>
         <div>{time}</div>
       </div>

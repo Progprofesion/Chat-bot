@@ -2,16 +2,28 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-top: 6px;
+    margin-top: 12px;
     margin-left: 61px;
     min-width: 130px;
     max-width: 315px;
+    min-height: 61px;
     background: #F2F2F7;
     padding: 4px 8px;
     border-radius: 6px;
     color: #2C2C2E;
-    min-height: 39px;
     word-wrap: break-word;
+}
+
+.titleWrapp {
+    display: flex;
+}
+
+.name {
+    margin-right: 10px;
+}
+
+.workStatus {
+    color: #666668;
 }
 
 .avatar {

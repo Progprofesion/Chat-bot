@@ -13,6 +13,7 @@ const Footer = () => {
   const addMessage = useStore((state) => state.addMessage);
   const changeIsbot = useStore((state) => state.changeIsbot);
   const isBotMessage = useStore((state) => state.isBotMessage);
+  const removeMessage = useStore((state) => state.removeMessage);
   let time = dayjs().format("h:mm A");
 
   const onClick = (): void => {
@@ -28,7 +29,7 @@ const Footer = () => {
     }
     let data = JSON.stringify(messages);
     localStorage.setItem("messages", data);
-  }, [isBotMessage]);
+  }, [messages]);
 
   return (
     <footer className={styles.footer}>

@@ -1,9 +1,23 @@
+import { useState } from "react";
 import Image from "next/image";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import styles from "../styles/Message.module.css";
 import mark from "../assets/icons/Frame 2882.svg";
-import bubbleTip from "../assets/icons/bubbleTip.svg";
+import useStore from "../store";
 
-const Message = ({ time, message }: { time: string; message: string }) => {
+const Message = ({
+  time,
+  message,
+  id,
+}: {
+  time: string;
+  message: string;
+  id: number;
+}) => {
+  const removeMessage = useStore((state) => state.removeMessage);
+  const editMessage = useStore((state) => state.editMessage);
+  const [currEditMessage, setcurrEditMessage] = useState("");
+  console.log(currEditMessage);
   return (
     <div className={styles.message}>
       <div className={styles.bubbleTip}>
@@ -21,10 +35,26 @@ const Message = ({ time, message }: { time: string; message: string }) => {
           <rect width="6" height="12" fill="#007AFF" />
         </svg>
       </div>
-      <div className={styles.content}>{message}</div>
+      <div className={styles.content}>
+        {message}
+        {/* <input
+          value={currEditMessage}
+          onChange={(e) => setcurrEditMessage(e.target.value)}
+          className={styles.editInput}
+          type="text"
+        /> */}
+      </div>
       <div className={styles.time}>
         <div>{time}</div>
         <Image className={styles.mark} src={mark} alt="Mark" />
+      </div>
+      <div className={styles.buttonWrapp}>
+        <button className={styles.editBtn} onClick={(e) => editMessage(id)}>
+          <EditOutlined />
+        </button>
+        <button className={styles.removeBtn} onClick={(e) => removeMessage(id)}>
+          <DeleteOutlined />
+        </button>
       </div>
     </div>
   );

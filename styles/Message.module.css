@@ -32,3 +32,16 @@
     right: -9px;
     top: -3px;
 }
+
+.buttonWrapp {
+    display: flex;
+    justify-content: space-between;
+    width: 45px;
+    position: absolute;
+    right: 5px;
+}
+
+.editInput {
+    background-color: rgba(53, 98, 137, 0.491);
+    padding-left: 7px;
+}

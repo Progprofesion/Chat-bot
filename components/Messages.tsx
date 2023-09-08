@@ -6,14 +6,13 @@ import styles from "../styles/Messages.module.css";
 const Messages = () => {
   const messages = useStore((state) => state.messages);
   let data = dayjs().format("DD/MM/YYYY");
-  const isBotMessage = useStore((state) => state.isBotMessage);
+
   return (
     <section className={styles.messages}>
       <div className={styles.currentTime}>{data}</div>
       <ul className={styles.messagesWrapp}>
         {messages
           ? messages.map((message) => {
-              console.log(message);
               return (
                 <div
                   className={
@@ -24,7 +23,11 @@ const Messages = () => {
                   {message.isBot ? (
                     <BotMessage message={message.message} time={message.time} />
                   ) : (
-                    <Message message={message.message} time={message.time} />
+                    <Message
+                      message={message.message}
+                      time={message.time}
+                      id={message.id}
+                    />
                   )}
                 </div>
               );
