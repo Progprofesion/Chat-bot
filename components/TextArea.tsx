@@ -1,10 +1,21 @@
 import { useEffect, useRef } from "react";
 import styles from "../styles/TextArea.module.css";
-const TextArea = ({ message, setMessage, onkeydown }) => {
-  const ref = useRef();
+
+interface ITextAreaProps {
+  message: string;
+  setMessage: (message: string) => void;
+  onkeydown: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
+}
+
+const TextArea: React.FC<ITextAreaProps> = ({
+  message,
+  setMessage,
+  onkeydown,
+}) => {
+  const ref = useRef<HTMLTextAreaElement>(null);
 
   // This only tracks the auto-sized height so we can tell if the user has manually resized
-  const autoHeight = useRef();
+  const autoHeight = useRef<string>();
 
   useEffect(() => {
     if (!ref.current) {
