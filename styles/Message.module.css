@@ -15,6 +15,10 @@
     word-wrap: break-word;
 }
 
+.content {
+    max-width: 200px;
+}
+
 .time {
     float: right;
     display: flex;

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import TextArea from "../components/TextArea";
 import dayjs from "dayjs";
 import styles from "../styles/Footer.module.css";
 import smile from "../assets/icons/smiley.svg";
@@ -13,13 +14,21 @@ const Footer = () => {
   const addMessage = useStore((state) => state.addMessage);
   const changeIsbot = useStore((state) => state.changeIsbot);
   const isBotMessage = useStore((state) => state.isBotMessage);
-  const removeMessage = useStore((state) => state.removeMessage);
+
   let time = dayjs().format("h:mm A");
 
   const onClick = (): void => {
     addMessage({ message: message, time: time, isBot: false });
     setMessage("");
     changeIsbot(true);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    // event.preventDefault();
+    if (event.key === "Enter") {
+      onClick();
+      event.preventDefault();
+    }
   };
 
   useEffect(() => {
@@ -36,12 +45,10 @@ const Footer = () => {
       <div className={styles.emoji}>
         <Image src={smile} alt="emojy" />
       </div>
-      <input
-        value={message}
-        placeholder="Start typing..."
-        className={styles.input}
-        type="text"
-        onChange={(e) => setMessage(e.target.value)}
+      <TextArea
+        message={message}
+        setMessage={setMessage}
+        onkeydown={handleKeyDown}
       />
       <div className={styles.sendUpload}>
         <button className={styles.button}>

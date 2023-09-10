@@ -35,15 +35,7 @@ const Message = ({
           <rect width="6" height="12" fill="#007AFF" />
         </svg>
       </div>
-      <div className={styles.content}>
-        {message}
-        {/* <input
-          value={currEditMessage}
-          onChange={(e) => setcurrEditMessage(e.target.value)}
-          className={styles.editInput}
-          type="text"
-        /> */}
-      </div>
+      <div className={styles.content}>{message}</div>
       <div className={styles.time}>
         <div>{time}</div>
         <Image className={styles.mark} src={mark} alt="Mark" />

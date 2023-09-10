@@ -18,7 +18,7 @@ interface UseStore {
   }) => void;
   changeIsbot: (boolean: boolean) => void;
   removeMessage: (id: number) => void;
-  editMessage: (id: number) => void;
+  editMessage: (message: number) => void;
 }
 
 let res = getFromLocalStorage("messages")

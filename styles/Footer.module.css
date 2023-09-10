@@ -1,11 +1,12 @@
 .footer {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     position: fixed;
     bottom: 0;
     max-width: 656px;
-    height: 48px;
+    min-height: 48px;
     background-color: aliceblue;
+    padding-bottom: 10px;
 }
 
 .emoji {
@@ -22,14 +23,14 @@
     justify-content: space-between;
     align-items: center;
     width: 72px;
-    height: 100%;
+    height: 48px;
     margin-right: 12px;
     padding: 0 12px;
 }
 
 
 .input {
-    width: 520px;
+    max-width: 520px;
     height: 20px;
 }
 
