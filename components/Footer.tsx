@@ -5,12 +5,10 @@ import dayjs from "dayjs";
 import styles from "../styles/Footer.module.css";
 import smile from "../assets/icons/smiley.svg";
 import mentios from "../assets/icons/mention.svg";
-import paperAirplane from "../assets/icons/paper-airplane.svg";
 import useStore from "../store";
 
 const Footer = () => {
   const [message, setMessage] = useState("");
-
   const messages = useStore((state) => state.messages);
   const addMessage = useStore((state) => state.addMessage);
   const changeIsbot = useStore((state) => state.changeIsbot);
@@ -24,6 +22,13 @@ const Footer = () => {
     changeIsbot(true);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      onClick();
+      event.preventDefault();
+    }
+  };
+
   useEffect(() => {
     if (isBotMessage) {
       addMessage({ message: "Hello World!", time: time, isBot: true });
@@ -32,14 +37,18 @@ const Footer = () => {
     let data = JSON.stringify(messages);
     localStorage.setItem("messages", data);
   }, [messages]);
-  console.log(message);
 
   return (
     <footer className={styles.footer}>
       <div className={styles.emoji}>
         <Image src={smile} alt="emojy" />
       </div>
-      <TextArea message={message} setMessage={setMessage} onClick={onClick} />
+      <TextArea
+        message={message}
+        setMessage={setMessage}
+        onkeydown={handleKeyDown}
+      />
+
       <div className={styles.sendUpload}>
         <button className={styles.button}>
           <Image src={mentios} alt="@" />

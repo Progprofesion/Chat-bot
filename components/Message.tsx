@@ -17,7 +17,7 @@ const Message = ({
   const removeMessage = useStore((state) => state.removeMessage);
   const editMessage = useStore((state) => state.editMessage);
   const [currEditMessage, setcurrEditMessage] = useState("");
-  console.log(currEditMessage);
+
   return (
     <div className={styles.message}>
       <div className={styles.bubbleTip}>
