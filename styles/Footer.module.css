@@ -6,7 +6,6 @@
     max-width: 656px;
     min-height: 48px;
     background-color: aliceblue;
-    padding-bottom: 10px;
 }
 
 .emoji {
@@ -26,12 +25,6 @@
     height: 48px;
     margin-right: 12px;
     padding: 0 12px;
-}
-
-
-.input {
-    max-width: 520px;
-    height: 20px;
 }
 
 .button {

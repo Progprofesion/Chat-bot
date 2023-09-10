@@ -29,13 +29,14 @@ const TextArea: React.FC<ITextAreaProps> = ({
       // don't auto size if the user has manually changed the height
       return;
     }
-
-    ref.current.style.height = "auto";
-    ref.current.style.overflow = "hidden";
-    const next = `${ref.current.scrollHeight}px`;
-    ref.current.style.height = next;
-    autoHeight.current = next;
-    ref.current.style.overflow = "auto";
+    if (message.length > 66) {
+      ref.current.style.height = "auto";
+      ref.current.style.overflow = "hidden";
+      const next = `${ref.current.scrollHeight}px`;
+      ref.current.style.height = next;
+      autoHeight.current = next;
+      ref.current.style.overflow = "auto";
+    }
   }, [message, ref, autoHeight]);
 
   return (
