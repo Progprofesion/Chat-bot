@@ -10,14 +10,36 @@ const Header = () => {
   return (
     <section className={styles.header}>
       <div className={styles.imgWrapp}>
-        <Image src={avatar1} alt="avatar" />
-        <Image src={avatar2} alt="avatar" />
-        <Image src={avatar3} alt="avatar" />
-        <Image src={avatar4} alt="avatar" />
+        <Image
+          className={styles.avatarImg}
+          style={{ left: "0px" }}
+          src={avatar1}
+          alt="avatar"
+        />
+        <Image
+          className={styles.avatarImg}
+          src={avatar2}
+          style={{ left: "20px" }}
+          alt="avatar"
+        />
+        <Image
+          className={styles.avatarImg}
+          src={avatar3}
+          style={{ left: "40px" }}
+          alt="avatar"
+        />
+        <Image
+          className={styles.avatarImg}
+          src={avatar4}
+          style={{
+            left: "60px",
+          }}
+          alt="avatar"
+        />
       </div>
-      <div className="header__titleWrapp">
-        <div className="header__title">🦄 Team Unicorns</div>
-        <div className="header__subtitle">last seen 45 minutes ago</div>
+      <div className={styles.titleWrapp}>
+        <h1 className={styles.title}>🦄 Team Unicorns</h1>
+        <div className={styles.subtitle}>last seen 45 minutes ago</div>
       </div>
       <button className={styles.kebab}>
         <Image src={kebab} alt="avatar" />

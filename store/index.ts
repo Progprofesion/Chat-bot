@@ -18,7 +18,7 @@ interface UseStore {
   }) => void;
   changeIsbot: (boolean: boolean) => void;
   removeMessage: (id: number) => void;
-  editMessage: (message: number) => void;
+  editMessage: (message: any, newMessage: string) => any;
 }
 
 let res = getFromLocalStorage("messages")
@@ -48,9 +48,17 @@ const useStore = create<UseStore>((set) => ({
     set((state) => ({
       messages: state.messages.filter((message) => message.id !== id),
     })),
-  editMessage: (message) =>
+  editMessage: (messaget, newMessage) =>
     set((state) => ({
-      // messages:
+      messages: [
+        {
+          id: Math.random() * 100,
+          message: newMessage,
+          time: messaget.time,
+          isBot: messaget.isBot,
+        },
+        ...state.messages,
+      ],
     })),
 }));
 export default useStore;

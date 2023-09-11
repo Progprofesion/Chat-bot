@@ -31,7 +31,7 @@ const TextArea: React.FC<ITextAreaProps> = ({
     ref.current.style.height = "1px";
     ref.current.style.height = 0 + ref.current.scrollHeight + "px";
   }, [message, ref, autoHeight]);
-  console.log(message);
+
   return (
     <textarea
       className={styles.textArea}

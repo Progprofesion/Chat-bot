@@ -16,14 +16,18 @@
 
 .titleWrapp {
     display: flex;
+    align-items: baseline;
+    font-size: 14px;
 }
 
 .name {
     margin-right: 10px;
+    font-weight: 600;
 }
 
 .workStatus {
     color: #666668;
+    font-size: 12px;
 }
 
 .avatar {
@@ -31,6 +35,9 @@
     top: 0;
     left: -13px;
     transform: translateX(-100%);
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
 }
 
 .online {
@@ -61,4 +68,6 @@
     display: flex;
     align-items: flex-end;
     font-size: 12px;
+    margin-left: 8px;
+    color: #666668;
 }

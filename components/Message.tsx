@@ -14,9 +14,18 @@ const Message = ({
   message: string;
   id: number;
 }) => {
+  const messages = useStore((state) => state.messages);
   const removeMessage = useStore((state) => state.removeMessage);
   const editMessage = useStore((state) => state.editMessage);
   const [currEditMessage, setcurrEditMessage] = useState("");
+
+  const test = (id: number) => {
+    for (let i = 0; i < messages.length; i++) {
+      if (messages[i].id === id) {
+        messages[i].message = "1111111111111";
+      }
+    }
+  };
 
   return (
     <div className={styles.message}>
@@ -41,7 +50,7 @@ const Message = ({
         <Image className={styles.mark} src={mark} alt="Mark" />
       </div>
       <div className={styles.buttonWrapp}>
-        <button className={styles.editBtn} onClick={(e) => editMessage(id)}>
+        <button className={styles.editBtn} onClick={(e) => test(id)}>
           <EditOutlined />
         </button>
         <button className={styles.removeBtn} onClick={(e) => removeMessage(id)}>

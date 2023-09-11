@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import TextArea from "../components/TextArea";
+import UploadAndDisplayImage from "../components/UploadAndDisplayImage";
 import dayjs from "dayjs";
 import styles from "../styles/Footer.module.css";
 import smile from "../assets/icons/smiley.svg";
@@ -48,10 +49,9 @@ const Footer = () => {
         setMessage={setMessage}
         onkeydown={handleKeyDown}
       />
-
       <div className={styles.sendUpload}>
         <button className={styles.button}>
-          <Image src={mentios} alt="@" />
+          <UploadAndDisplayImage />
         </button>
         <button className={styles.button} onClick={() => onClick()}>
           <svg

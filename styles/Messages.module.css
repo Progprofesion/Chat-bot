@@ -1,7 +1,11 @@
 .messages {
     width: 656px;
     padding-bottom: 58px;
-    background-color: aliceblue;
+}
+
+.currentTime {
+    color: #666668;
+    font-size: 12px;
 }
 
 .messagesWrapp {
@@ -10,7 +14,6 @@
     justify-content: flex-end;
     margin-top: 51px;
     width: 100%;
-    /* height: 100%; */
 }
 
 .botMessage {
