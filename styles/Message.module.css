@@ -20,6 +20,11 @@
     font-size: 14px;
 }
 
+.timeMarkWrapp {
+    display: flex;
+    align-items: center;
+}
+
 .time {
     float: right;
     display: flex;

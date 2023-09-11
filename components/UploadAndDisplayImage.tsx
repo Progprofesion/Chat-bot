@@ -2,8 +2,8 @@ import { useState } from "react";
 import Image from "next/image";
 import mentios from "../assets/icons/mention.svg";
 
-const UploadAndDisplayImage = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const UploadAndDisplayImage: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   return (
     <div>
@@ -29,7 +29,7 @@ const UploadAndDisplayImage = () => {
         name="myImg"
         style={{ display: "none" }}
         onChange={(event) => {
-          setSelectedImage(event.target.files[0]);
+          setSelectedImage(event.target.files![0]);
         }}
       />
     </div>

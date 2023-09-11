@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import TextArea from "../components/TextArea";
+import TextArea from "./TextArea";
 import UploadAndDisplayImage from "../components/UploadAndDisplayImage";
 import dayjs from "dayjs";
-import styles from "../styles/Footer.module.css";
+import styles from "../styles/Form.module.css";
 import smile from "../assets/icons/smiley.svg";
 import mentios from "../assets/icons/mention.svg";
+import paperAirplane from "../assets/icons/paper-airplane.svg";
 import useStore from "../store";
 
-const Footer = () => {
+const Form = () => {
   const [message, setMessage] = useState("");
+
   const messages = useStore((state) => state.messages);
   const addMessage = useStore((state) => state.addMessage);
   const changeIsbot = useStore((state) => state.changeIsbot);
@@ -17,17 +19,11 @@ const Footer = () => {
 
   let time = dayjs().format("h:mm A");
 
-  const onClick = (): void => {
+  const onClick = (e: any): void => {
+    e.preventDefault();
     addMessage({ message: message, time: time, isBot: false });
     setMessage("");
     changeIsbot(true);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") {
-      onClick();
-      event.preventDefault();
-    }
   };
 
   useEffect(() => {
@@ -38,22 +34,21 @@ const Footer = () => {
     let data = JSON.stringify(messages);
     localStorage.setItem("messages", data);
   }, [messages]);
+  console.log(message);
 
   return (
-    <footer className={styles.footer}>
+    <form className={styles.form}>
       <div className={styles.emoji}>
         <Image src={smile} alt="emojy" />
       </div>
       <TextArea
         message={message}
         setMessage={setMessage}
-        onkeydown={handleKeyDown}
+        onClick={(e: any) => onClick(e)}
       />
       <div className={styles.sendUpload}>
-        <button className={styles.button}>
-          <UploadAndDisplayImage />
-        </button>
-        <button className={styles.button} onClick={() => onClick()}>
+        <UploadAndDisplayImage />
+        <button className={styles.button} onClick={(e) => onClick(e)}>
           <svg
             width="16"
             height="16"
@@ -78,8 +73,8 @@ const Footer = () => {
           </svg>
         </button>
       </div>
-    </footer>
+    </form>
   );
 };
 
-export default Footer;
+export default Form;

@@ -2,13 +2,16 @@ import useStore from "../store";
 import dayjs from "dayjs";
 import Message from "./Message";
 import BotMessage from "./BotMessage";
+import Form from "../components/Form";
 import styles from "../styles/Messages.module.css";
+
 const Messages = () => {
   const messages = useStore((state) => state.messages);
   let data = dayjs().format("DD/MM/YYYY");
 
   return (
     <section className={styles.messages}>
+      <Form />
       <div className={styles.currentTime}>{data}</div>
       <ul className={styles.messagesWrapp}>
         {messages
