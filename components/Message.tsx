@@ -3,7 +3,6 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import styles from "../styles/Message.module.css";
 import mark from "../assets/icons/Frame 2882.svg";
 import useStore from "../store";
-import smile from "../assets/icons/smiley.svg";
 
 interface Imesage {
   time: string;
@@ -15,9 +14,7 @@ interface Imesage {
 const Message = ({ time, message, id, img }: Imesage) => {
   const removeMessage = useStore((state) => state.removeMessage);
   const changeIsEdit = useStore((state) => state.changeIsEdit);
-  // const img = useStore((state) => state.img);
-  const isImg = useStore((state) => state.isImg);
-  console.log(img);
+
   return (
     <div className={styles.message}>
       <div className={styles.bubbleTip}>

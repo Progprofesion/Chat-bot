@@ -6,8 +6,9 @@ const UploadAndDisplayImage: React.FC = () => {
   const setImg = useStore((state) => state.setImg);
   const img = useStore((state) => state.img);
 
-  const handleImageUpload = (event: any) => {
-    const file = event.target.files[0];
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
     const reader = new FileReader();
     reader.onload = () => {
       setImg(reader.result);
@@ -23,11 +24,7 @@ const UploadAndDisplayImage: React.FC = () => {
         </div>
       )}
       <label
-        style={{
-          cursor: "pointer",
-          display: "flex",
-          height: "16px",
-        }}
+        style={{ cursor: "pointer", display: "flex", height: "16px" }}
         htmlFor="fusk"
       >
         <Image src={mentios} alt="@" />

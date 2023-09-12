@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Header from "../components/Header";
 import useStore from "../store";
 import dayjs from "dayjs";
@@ -9,8 +8,9 @@ import styles from "../styles/Messages.module.css";
 
 const Messages = () => {
   const messages = useStore((state) => state.messages);
-  const img = useStore((state) => state.img);
+
   let data = dayjs().format("DD/MM/YYYY");
+
   return (
     <section className={styles.messages}>
       <Header />

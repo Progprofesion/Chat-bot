@@ -41,7 +41,7 @@ const Form = () => {
     addTextMessage("");
   };
 
-  const emojy = (e: any): void => {
+  const emojy = (e: React.MouseEvent<HTMLButtonElement>): void => {
     if (e) {
       e.preventDefault();
     }
@@ -50,7 +50,7 @@ const Form = () => {
     changeIsbot(true);
     setIsImg(true);
   };
-  console.log(messages);
+
   useEffect(() => {
     if (isBotMessage) {
       addMessage({ message: "Hello World!", time: time, isBot: true });
