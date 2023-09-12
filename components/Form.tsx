@@ -39,6 +39,18 @@ const Form = () => {
     addTextMessage("");
   };
 
+  const emojy = (e: any): void => {
+    if (e) {
+      e.preventDefault();
+    }
+
+    if (textMessage) {
+      addMessage({ message: "", time: time, isBot: false, img: "base64" });
+      changeIsbot(true);
+    }
+    addTextMessage("");
+  };
+
   useEffect(() => {
     if (isBotMessage) {
       addMessage({ message: "Hello World!", time: time, isBot: true });
@@ -69,7 +81,7 @@ const Form = () => {
           X
         </button>
       ) : null}
-      <button className={styles.emoji}>
+      <button onClick={emojy} className={styles.emoji}>
         <Image src={smile} alt="emojy" />
       </button>
       <TextArea

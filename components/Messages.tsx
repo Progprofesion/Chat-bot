@@ -1,3 +1,4 @@
+import Image from "next/image";
 import useStore from "../store";
 import dayjs from "dayjs";
 import Message from "./Message";
@@ -23,6 +24,7 @@ const Messages = () => {
                     }
                     key={Math.random() * 100}
                   >
+                    <Image src={"smile"} alt="emojy" />
                     {message.isBot ? (
                       <BotMessage
                         message={message.message}

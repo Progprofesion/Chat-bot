@@ -6,14 +6,12 @@ const UploadAndDisplayImage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<any>("");
 
   const handleImageUpload = (event: any) => {
-    if (event.target) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        setSelectedImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      setSelectedImage(reader.result);
+    };
+    reader.readAsDataURL(file);
   };
 
   return (

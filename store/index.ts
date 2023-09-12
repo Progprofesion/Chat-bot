@@ -6,6 +6,7 @@ interface Message {
   message: string;
   time: string;
   isBot: boolean;
+  img?: string;
 }
 
 interface UseStore {
