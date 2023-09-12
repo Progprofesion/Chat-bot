@@ -17,7 +17,6 @@ const Form = () => {
   const textMessage = useStore((state) => state.textMessage);
   const editMessage = useStore((state) => state.editMessage);
   const id = useStore((state) => state.id);
-
   const isEdit = useStore((state) => state.isEdit);
 
   let time = dayjs().format("h:mm A");
@@ -56,6 +55,17 @@ const Form = () => {
   return (
     <form className={styles.form}>
       {isEdit ? <p className={styles.edit}>Редактирование</p> : null}
+      {isEdit ? (
+        <button
+          onClick={() => {
+            changeIsEdit(false);
+            addTextMessage("");
+          }}
+          className={styles.cancelEdit}
+        >
+          X
+        </button>
+      ) : null}
       <div className={styles.emoji}>
         <Image src={smile} alt="emojy" />
       </div>

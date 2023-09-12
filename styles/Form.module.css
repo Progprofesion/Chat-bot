@@ -41,3 +41,11 @@
     left: 50px;
     color: brown;
 }
+
+.cancelEdit {
+    position: absolute;
+    top: -25px;
+    right: 25px;
+    color: brown;
+    font-weight: 600;
+}
