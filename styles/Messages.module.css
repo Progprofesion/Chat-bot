@@ -1,7 +1,7 @@
 .messages {
     position: relative;
     max-width: 656px;
-    min-height: calc(100vh - 48px);
+    min-height: calc(100vh - 46px);
     padding-bottom: 150px;
 }
 
