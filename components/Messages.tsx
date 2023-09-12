@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Header from "../components/Header";
 import useStore from "../store";
 import dayjs from "dayjs";
 import Message from "./Message";
@@ -11,6 +12,7 @@ const Messages = () => {
   let data = dayjs().format("DD/MM/YYYY");
   return (
     <section className={styles.messages}>
+      <Header />
       <Form />
       <div className={styles.currentTime}>{data}</div>
       <ul className={styles.messagesWrapp}>

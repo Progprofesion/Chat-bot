@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import dynamic from "next/dynamic";
 
 export default function Home() {
@@ -7,7 +6,6 @@ export default function Home() {
   });
   return (
     <main style={{ boxShadow: "0px 0px 0px 1px #E5E5EA inset" }}>
-      <Header />
       <Messages />
     </main>
   );
