@@ -15,11 +15,7 @@ interface UseStore {
   isBotMessage: boolean;
   isEdit: boolean;
   addTextMessage: (message: any) => void;
-  addMessage: (messageData: {
-    message: string;
-    time: string;
-    isBot: boolean;
-  }) => void;
+  addMessage: (messageData: Message) => void;
   changeIsbot: (boolean: boolean) => void;
   changeIsEdit: (boolean: boolean, message?: string, id?: number) => void;
   removeMessage: (id: number) => void;
@@ -37,10 +33,6 @@ const useStore = create<UseStore>((set) => ({
   textMessage: "",
   isBotMessage: false,
   isEdit: false,
-  // setId: (id: number) =>
-  //   set((state) => ({
-  //     id: id,
-  //   })),
   addMessage: (messageData) =>
     set((state) => ({
       messages: [

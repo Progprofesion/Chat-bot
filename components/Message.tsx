@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Image from "next/image";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import styles from "../styles/Message.module.css";
@@ -13,9 +12,8 @@ interface Imesage {
 
 const Message = ({ time, message, id }: Imesage) => {
   const removeMessage = useStore((state) => state.removeMessage);
-  const editMessage = useStore((state) => state.editMessage);
   const changeIsEdit = useStore((state) => state.changeIsEdit);
-  const textMessage = useStore((state) => state.textMessage);
+
   return (
     <div className={styles.message}>
       <div className={styles.bubbleTip}>
@@ -43,11 +41,11 @@ const Message = ({ time, message, id }: Imesage) => {
       <div className={styles.buttonWrapp}>
         <button
           className={styles.editBtn}
-          onClick={(e) => changeIsEdit(true, message, id)}
+          onClick={() => changeIsEdit(true, message, id)}
         >
           <EditOutlined />
         </button>
-        <button className={styles.removeBtn} onClick={(e) => removeMessage(id)}>
+        <button className={styles.removeBtn} onClick={() => removeMessage(id)}>
           <DeleteOutlined />
         </button>
       </div>

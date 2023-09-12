@@ -49,3 +49,9 @@
     right: 0;
     margin-left: 230px;
 }
+
+@media (max-width: 565px) {
+    .avatarImg {
+        display: none;
+    }
+}

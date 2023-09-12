@@ -14,7 +14,7 @@ class MyDocument extends Document {
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/_next/static/media/favicon.f5faf38f.ico"
+            href="data:image/x-icon"
           ></link>
         </Head>
         <body>

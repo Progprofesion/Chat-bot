@@ -12,7 +12,7 @@ input {
 }
 
 body {
-    width: 656px;
+    max-width: 656px;
     margin: 0 auto;
 }
 

@@ -1,7 +1,6 @@
 .messages {
     position: relative;
-    width: 656px;
-    /* height: calc(100vh - 68px); */
+    max-width: 656px;
     min-height: 844px;
     padding-bottom: 150px;
 }
@@ -15,7 +14,7 @@
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
-    margin-top: 20px;
+    margin-top: 4px;
     width: 100%;
 }
 
@@ -29,5 +28,5 @@
 }
 
 .userMessage {
-    position: relative;
+    margin-top: 16px;
 }

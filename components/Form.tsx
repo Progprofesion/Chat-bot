@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import TextArea from "./TextArea";
 import UploadAndDisplayImage from "../components/UploadAndDisplayImage";
@@ -54,21 +54,22 @@ const Form = () => {
 
   return (
     <form className={styles.form}>
-      {isEdit ? <p className={styles.edit}>Редактирование</p> : null}
-      {isEdit ? (
-        <button
-          onClick={() => {
-            changeIsEdit(false);
-            addTextMessage("");
-          }}
-          className={styles.cancelEdit}
-        >
-          X
-        </button>
-      ) : null}
-      <div className={styles.emoji}>
+      {isEdit
+        ? (
+            <button
+              onClick={() => {
+                changeIsEdit(false);
+                addTextMessage("");
+              }}
+              className={styles.cancelEdit}
+            >
+              X
+            </button>
+          ) && <p className={styles.edit}>Редактирование</p>
+        : null}
+      <button className={styles.emoji}>
         <Image src={smile} alt="emojy" />
-      </div>
+      </button>
       <TextArea
         message={textMessage}
         setMessage={addTextMessage}
