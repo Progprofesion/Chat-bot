@@ -2,19 +2,22 @@ import Image from "next/image";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import styles from "../styles/Message.module.css";
 import mark from "../assets/icons/Frame 2882.svg";
-import smile from "../assets/icons/smiley.svg";
 import useStore from "../store";
+import smile from "../assets/icons/smiley.svg";
 
 interface Imesage {
   time: string;
   message: string;
   id: number;
+  img: string;
 }
 
-const Message = ({ time, message, id }: Imesage) => {
+const Message = ({ time, message, id, img }: Imesage) => {
   const removeMessage = useStore((state) => state.removeMessage);
   const changeIsEdit = useStore((state) => state.changeIsEdit);
-
+  // const img = useStore((state) => state.img);
+  const isImg = useStore((state) => state.isImg);
+  console.log(img);
   return (
     <div className={styles.message}>
       <div className={styles.bubbleTip}>
@@ -34,7 +37,7 @@ const Message = ({ time, message, id }: Imesage) => {
       </div>
       <div className={styles.content}>
         {message}
-        {/* <Image className={styles.mark} src={smile} alt="Mark" /> */}
+        {img && <Image alt="not found" src={img as any} />}
       </div>
       <div className={styles.time}>
         <div className={styles.timeMarkWrapp}>

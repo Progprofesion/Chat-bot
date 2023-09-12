@@ -16,14 +16,15 @@ interface UseStore {
   isBotMessage: boolean;
   isEdit: boolean;
   img: string | ArrayBuffer | null;
+  isImg: boolean;
   setImg: (img: string | ArrayBuffer | null) => void;
+  setIsImg: (boolean: any) => void;
   addTextMessage: (message: string) => void;
   addMessage: (messageData: Message) => void;
   changeIsbot: (boolean: boolean) => void;
   changeIsEdit: (boolean: boolean, message?: string, id?: number) => void;
   removeMessage: (id: number) => void;
   editMessage: (id: number, newMessage: string) => void;
-  uploadImg: (imgData: any) => void;
 }
 
 const res = getFromLocalStorage("messages")
@@ -37,6 +38,7 @@ const useStore = create<UseStore>((set) => ({
   isBotMessage: false,
   isEdit: false,
   img: "",
+  isImg: false,
   addMessage: (messageData) =>
     set((state) => ({
       messages: [
@@ -79,20 +81,9 @@ const useStore = create<UseStore>((set) => ({
     set(() => ({
       img: img,
     })),
-  uploadImg: (imgData: any) =>
-    set((state: any) => ({
-      // messages: [
-      //   ...state.messages,
-      //   {
-      //     id: Math.floor(Math.random() * 10000) + 1,
-      //     message: `![image](${imgData.link})`,
-      //     time: new Date().toLocaleTimeString([], {
-      //       hour: "2-digit",
-      //       minute: "2-digit",
-      //     }),
-      //     isBot: true,
-      //   },
-      // ],
+  setIsImg: (boolean) =>
+    set(() => ({
+      isImg: boolean,
     })),
 }));
 

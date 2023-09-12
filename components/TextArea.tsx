@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "../styles/TextArea.module.css";
-import useStore from "../store";
 
 interface ITextAreaProps {
   message: string;

@@ -9,6 +9,7 @@ import styles from "../styles/Messages.module.css";
 
 const Messages = () => {
   const messages = useStore((state) => state.messages);
+  const img = useStore((state) => state.img);
   let data = dayjs().format("DD/MM/YYYY");
   return (
     <section className={styles.messages}>
@@ -36,6 +37,7 @@ const Messages = () => {
                         message={message.message}
                         time={message.time}
                         id={message.id}
+                        img={message.img ? message.img : ""}
                       />
                     )}
                   </div>

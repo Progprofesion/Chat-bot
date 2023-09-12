@@ -6,12 +6,10 @@ import avatar4 from "../assets/icons/avatar4.jpg";
 import titleImg from "../assets/icons/titleImg.jpg";
 import kebab from "../assets/icons/kebab-horizontal.svg";
 import styles from "../styles/Header.module.css";
-//  Получение пути для Favicon
-import favicon from "../assets/icons/favicon.ico";
 
 const Header = () => {
   return (
-    <section className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.imgWrapp}>
         <Image
           className={styles.avatarImg}
@@ -58,7 +56,7 @@ const Header = () => {
       <button className={styles.kebab}>
         <Image src={kebab} alt="avatar" />
       </button>
-    </section>
+    </header>
   );
 };
 
