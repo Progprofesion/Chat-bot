@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
-    margin-top: 51px;
+    margin-top: 20px;
     width: 100%;
 }
 
@@ -29,5 +29,5 @@
 }
 
 .userMessage {
-    top: 0;
+    position: relative;
 }

@@ -10,6 +10,12 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@600&display=swap"
             rel="stylesheet"
           />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/_next/static/media/favicon.f5faf38f.ico"
+          ></link>
         </Head>
         <body>
           <Main />

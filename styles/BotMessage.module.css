@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-top: 12px;
+    margin-top: 16px;
     margin-left: 61px;
     min-width: 130px;
     max-width: 315px;
@@ -52,10 +52,6 @@
     position: absolute;
     left: -9px;
     top: -5px;
-}
-
-.botMessage {
-    display: flex;
 }
 
 .currentTime {
