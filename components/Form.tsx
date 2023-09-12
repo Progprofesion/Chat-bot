@@ -54,19 +54,18 @@ const Form = () => {
 
   return (
     <form className={styles.form}>
-      {isEdit
-        ? (
-            <button
-              onClick={() => {
-                changeIsEdit(false);
-                addTextMessage("");
-              }}
-              className={styles.cancelEdit}
-            >
-              X
-            </button>
-          ) && <p className={styles.edit}>Редактирование</p>
-        : null}
+      {isEdit ? <p className={styles.edit}>Редактирование</p> : null}
+      {isEdit ? (
+        <button
+          onClick={() => {
+            changeIsEdit(false);
+            addTextMessage("");
+          }}
+          className={styles.cancelEdit}
+        >
+          X
+        </button>
+      ) : null}
       <button className={styles.emoji}>
         <Image src={smile} alt="emojy" />
       </button>
