@@ -2,6 +2,7 @@ import Image from "next/image";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import styles from "../styles/Message.module.css";
 import mark from "../assets/icons/Frame 2882.svg";
+import smile from "../assets/icons/smiley.svg";
 import useStore from "../store";
 
 interface Imesage {
@@ -31,7 +32,10 @@ const Message = ({ time, message, id }: Imesage) => {
           <rect width="6" height="12" fill="#007AFF" />
         </svg>
       </div>
-      <div className={styles.content}>{message}</div>
+      <div className={styles.content}>
+        {message}
+        {/* <Image className={styles.mark} src={smile} alt="Mark" /> */}
+      </div>
       <div className={styles.time}>
         <div className={styles.timeMarkWrapp}>
           <div>{time}</div>

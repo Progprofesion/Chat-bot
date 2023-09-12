@@ -18,7 +18,7 @@ const Form = () => {
   const editMessage = useStore((state) => state.editMessage);
   const id = useStore((state) => state.id);
   const isEdit = useStore((state) => state.isEdit);
-
+  // const img = useStore((state) => state.img);
   let time = dayjs().format("h:mm A");
 
   const onClick = (
@@ -44,13 +44,9 @@ const Form = () => {
       e.preventDefault();
     }
 
-    if (textMessage) {
-      addMessage({ message: "", time: time, isBot: false, img: "base64" });
-      changeIsbot(true);
-    }
-    addTextMessage("");
+    // addMessage({ message: "", time: time, isBot: false, img: smile });
   };
-
+  console.log(messages);
   useEffect(() => {
     if (isBotMessage) {
       addMessage({ message: "Hello World!", time: time, isBot: true });

@@ -1,24 +1,26 @@
 import { useState } from "react";
 import Image from "next/image";
 import mentios from "../assets/icons/mention.svg";
+import useStore from "../store";
 
 const UploadAndDisplayImage: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<any>("");
+  const setImg = useStore((state) => state.setImg);
+  const img = useStore((state) => state.img);
 
   const handleImageUpload = (event: any) => {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
-      setSelectedImage(reader.result);
+      setImg(reader.result);
     };
     reader.readAsDataURL(file);
   };
 
   return (
     <div>
-      {selectedImage && (
+      {img && (
         <div>
-          <Image alt="not found" width={250} src={selectedImage} height={250} />
+          <Image alt="not found" width={250} src={img as any} height={250} />
         </div>
       )}
       <label
