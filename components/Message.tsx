@@ -43,7 +43,7 @@ const Message = ({ time, message, id }: Imesage) => {
       <div className={styles.buttonWrapp}>
         <button
           className={styles.editBtn}
-          onClick={(e) => changeIsEdit(true, message)}
+          onClick={(e) => changeIsEdit(true, message, id)}
         >
           <EditOutlined />
         </button>

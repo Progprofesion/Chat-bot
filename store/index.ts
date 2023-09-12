@@ -9,6 +9,7 @@ interface Message {
 }
 
 interface UseStore {
+  id: number;
   textMessage: string;
   messages: Message[];
   isBotMessage: boolean;
@@ -20,7 +21,7 @@ interface UseStore {
     isBot: boolean;
   }) => void;
   changeIsbot: (boolean: boolean) => void;
-  changeIsEdit: (boolean: boolean, message?: string) => void;
+  changeIsEdit: (boolean: boolean, message?: string, id?: number) => void;
   removeMessage: (id: number) => void;
   editMessage: (id: number, newMessage: string) => void;
   uploadImg: (imgData: any) => void;
@@ -31,10 +32,15 @@ let res = getFromLocalStorage("messages")
   : [];
 
 const useStore = create<UseStore>((set) => ({
+  id: 0,
   messages: res,
   textMessage: "",
   isBotMessage: false,
   isEdit: false,
+  // setId: (id: number) =>
+  //   set((state) => ({
+  //     id: id,
+  //   })),
   addMessage: (messageData) =>
     set((state) => ({
       messages: [
@@ -51,8 +57,9 @@ const useStore = create<UseStore>((set) => ({
     set((state: any) => ({
       textMessage: message,
     })),
-  changeIsEdit: (boolean, message) =>
+  changeIsEdit: (boolean, message, id) =>
     set((state) => ({
+      id: id,
       isEdit: boolean,
       textMessage: message,
     })),
@@ -73,18 +80,18 @@ const useStore = create<UseStore>((set) => ({
     })),
   uploadImg: (imgData: any) =>
     set((state: any) => ({
-      messages: [
-        ...state.messages,
-        {
-          id: Math.floor(Math.random() * 10000) + 1,
-          message: `![image](${imgData.link})`,
-          time: new Date().toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-          }),
-          isBot: true,
-        },
-      ],
+      // messages: [
+      //   ...state.messages,
+      //   {
+      //     id: Math.floor(Math.random() * 10000) + 1,
+      //     message: `![image](${imgData.link})`,
+      //     time: new Date().toLocaleTimeString([], {
+      //       hour: "2-digit",
+      //       minute: "2-digit",
+      //     }),
+      //     isBot: true,
+      //   },
+      // ],
     })),
 }));
 
