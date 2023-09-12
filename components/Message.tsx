@@ -5,18 +5,17 @@ import styles from "../styles/Message.module.css";
 import mark from "../assets/icons/Frame 2882.svg";
 import useStore from "../store";
 
-const Message = ({
-  time,
-  message,
-  id,
-}: {
+interface Imesage {
   time: string;
   message: string;
   id: number;
-}) => {
+}
+
+const Message = ({ time, message, id }: Imesage) => {
   const removeMessage = useStore((state) => state.removeMessage);
   const editMessage = useStore((state) => state.editMessage);
-
+  const changeIsEdit = useStore((state) => state.changeIsEdit);
+  const textMessage = useStore((state) => state.textMessage);
   return (
     <div className={styles.message}>
       <div className={styles.bubbleTip}>
@@ -44,7 +43,7 @@ const Message = ({
       <div className={styles.buttonWrapp}>
         <button
           className={styles.editBtn}
-          onClick={(e) => editMessage(id, message)}
+          onClick={(e) => changeIsEdit(true, message)}
         >
           <EditOutlined />
         </button>

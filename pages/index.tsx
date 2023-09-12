@@ -1,4 +1,3 @@
-import styles from "../styles/index.module.css";
 import Header from "../components/Header";
 import dynamic from "next/dynamic";
 
@@ -7,7 +6,7 @@ export default function Home() {
     ssr: false,
   });
   return (
-    <main className={styles.main}>
+    <main style={{ boxShadow: "0px 0px 0px 1px #E5E5EA inset" }}>
       <Header />
       <Messages />
     </main>

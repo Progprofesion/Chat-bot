@@ -34,3 +34,10 @@
     align-items: center;
     cursor: pointer;
 }
+
+.edit {
+    position: absolute;
+    top: -25px;
+    left: 50px;
+    color: brown;
+}

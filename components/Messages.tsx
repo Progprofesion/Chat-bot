@@ -8,7 +8,6 @@ import styles from "../styles/Messages.module.css";
 const Messages = () => {
   const messages = useStore((state) => state.messages);
   let data = dayjs().format("DD/MM/YYYY");
-
   return (
     <section className={styles.messages}>
       <Form />
@@ -16,24 +15,29 @@ const Messages = () => {
       <ul className={styles.messagesWrapp}>
         {messages
           ? messages.map((message) => {
-              return (
-                <div
-                  className={
-                    message.isBot ? styles.botMessage : styles.userMessage
-                  }
-                  key={Math.random() * 100}
-                >
-                  {message.isBot ? (
-                    <BotMessage message={message.message} time={message.time} />
-                  ) : (
-                    <Message
-                      message={message.message}
-                      time={message.time}
-                      id={message.id}
-                    />
-                  )}
-                </div>
-              );
+              if (message.id) {
+                return (
+                  <div
+                    className={
+                      message.isBot ? styles.botMessage : styles.userMessage
+                    }
+                    key={Math.random() * 100}
+                  >
+                    {message.isBot ? (
+                      <BotMessage
+                        message={message.message}
+                        time={message.time}
+                      />
+                    ) : (
+                      <Message
+                        message={message.message}
+                        time={message.time}
+                        id={message.id}
+                      />
+                    )}
+                  </div>
+                );
+              }
             })
           : null}
       </ul>
