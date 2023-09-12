@@ -13,7 +13,6 @@ const TextArea: React.FC<ITextAreaProps> = ({
   setMessage,
   onkeydown,
 }) => {
-  const [key, setKey] = useState<any>("");
   const ref = useRef<HTMLTextAreaElement>(null);
 
   const autoHeight = useRef<string>();

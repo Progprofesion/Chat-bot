@@ -1,52 +1,26 @@
 import { useState } from "react";
 import Image from "next/image";
-import dayjs from "dayjs";
-import useStore from "../store";
 import mentios from "../assets/icons/mention.svg";
 
 const UploadAndDisplayImage: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
-  const uploadImg = useStore((state) => state.uploadImg);
-  let time = dayjs().format("h:mm A");
-  // addMessage({
-  //   message: URL.createObjectURL(selectedImage!),
-  //   time: "time",
-  //   isBot: false,
-  // });
+  const [selectedImage, setSelectedImage] = useState<any>("");
 
-  // const test = (img: string) => {
-  //   uploadImg({
-  //     img: ttt,
-  //     time: time,
-  //     isBot: false,
-  //   });
-  // };
-
-  // const ttt = () => {
-  //   if (selectedImage) {
-  //     return (
-  //       <div>
-  //         <img
-  //           alt="not found"
-  //           width={"250px"}
-  //           src={URL.createObjectURL(selectedImage)}
-  //         />
-  //       </div>
-  //     );
-  //   }
-  // };
+  const handleImageUpload = (event: any) => {
+    if (event.target) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        setSelectedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div>
       {selectedImage && (
         <div>
-          <Image
-            alt="not found"
-            width={250}
-            src={URL.createObjectURL(selectedImage)}
-            height={250}
-            objectFit="cover"
-          />
+          <Image alt="not found" width={250} src={selectedImage} height={250} />
         </div>
       )}
       <label
@@ -64,9 +38,7 @@ const UploadAndDisplayImage: React.FC = () => {
         id="fusk"
         name="myImg"
         style={{ display: "none" }}
-        onChange={(event) => {
-          setSelectedImage(event.target.files![0]);
-        }}
+        onChange={handleImageUpload}
       />
     </div>
   );

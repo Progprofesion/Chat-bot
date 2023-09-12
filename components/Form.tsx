@@ -21,7 +21,11 @@ const Form = () => {
 
   let time = dayjs().format("h:mm A");
 
-  const onClick = (e: any): void => {
+  const onClick = (
+    e:
+      | React.KeyboardEvent<Element>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
     if (e) {
       e.preventDefault();
     }
@@ -32,7 +36,6 @@ const Form = () => {
       addMessage({ message: textMessage, time: time, isBot: false });
       changeIsbot(true);
     }
-
     addTextMessage("");
   };
 
@@ -72,7 +75,7 @@ const Form = () => {
       <TextArea
         message={textMessage}
         setMessage={addTextMessage}
-        onkeydown={(e: any) => handleKeyDown(e)}
+        onkeydown={(e) => handleKeyDown(e)}
       />
       <div className={styles.sendUpload}>
         <UploadAndDisplayImage />
