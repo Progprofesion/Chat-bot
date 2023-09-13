@@ -39,6 +39,6 @@
 
 @media(max-width: 767px) {
     .messages {
-        min-height: 100vh;
+        min-height: calc(100vh - 48px);
     }
 }
