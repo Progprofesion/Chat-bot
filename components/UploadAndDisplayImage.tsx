@@ -1,10 +1,15 @@
 import Image from "next/image";
+import dayjs from "dayjs";
 import mentios from "../assets/icons/mention.svg";
 import useStore from "../store";
 
 const UploadAndDisplayImage: React.FC = () => {
   const setImg = useStore((state) => state.setImg);
-  const img = useStore((state) => state.img);
+  const addMessage = useStore((state) => state.addMessage);
+  const changeIsbot = useStore((state) => state.changeIsbot);
+  const setIsImg = useStore((state) => state.setIsImg);
+
+  let time = dayjs().format("h:mm A");
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -12,17 +17,20 @@ const UploadAndDisplayImage: React.FC = () => {
     const reader = new FileReader();
     reader.onload = () => {
       setImg(reader.result);
+      addMessage({
+        message: "",
+        time: time,
+        isBot: false,
+        img: reader.result as any,
+      });
+      changeIsbot(true);
+      setIsImg(true);
     };
     reader.readAsDataURL(file);
   };
 
   return (
     <div>
-      {img && (
-        <div>
-          <Image alt="not found" width={250} src={img as any} height={250} />
-        </div>
-      )}
       <label
         style={{ cursor: "pointer", display: "flex", height: "16px" }}
         htmlFor="fusk"

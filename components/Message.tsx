@@ -14,7 +14,7 @@ interface Imesage {
 const Message = ({ time, message, id, img }: Imesage) => {
   const removeMessage = useStore((state) => state.removeMessage);
   const changeIsEdit = useStore((state) => state.changeIsEdit);
-
+  const img1 = useStore((state) => state.img);
   return (
     <div className={styles.message}>
       <div className={styles.bubbleTip}>
@@ -34,7 +34,14 @@ const Message = ({ time, message, id, img }: Imesage) => {
       </div>
       <div className={styles.content}>
         {message}
-        {img && <Image alt="not found" src={img as any} />}
+        {img && (
+          <Image
+            alt="not found"
+            width={150}
+            src={img1 ? (img as any) : img}
+            height={150}
+          />
+        )}
       </div>
       <div className={styles.time}>
         <div className={styles.timeMarkWrapp}>
