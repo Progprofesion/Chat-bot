@@ -10,7 +10,7 @@ const Messages = () => {
   const messages = useStore((state) => state.messages);
 
   let data = dayjs().format("DD/MM/YYYY");
-  console.log(messages);
+
   return (
     <section className={styles.messages}>
       <Header />

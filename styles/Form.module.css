@@ -1,7 +1,7 @@
 .form {
     display: flex;
     align-items: flex-end;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     max-width: 100%;
     min-height: 48px;

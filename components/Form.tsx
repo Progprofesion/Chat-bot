@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import TextArea from "./TextArea";
 import UploadAndDisplayImage from "../components/UploadAndDisplayImage";
@@ -70,8 +70,28 @@ const Form = () => {
     }
   };
 
+  const [scroll, setScroll] = useState(0);
+  useEffect(() => {
+    if (document.body.clientHeight > window.innerHeight) {
+      setScroll(100);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scroll]);
+  const handleScroll = () => {
+    setScroll(window.scrollY);
+  };
+
+  // console.log(scroll);
+
   return (
-    <form className={styles.form}>
+    <form
+      onWheel={(e) => console.log(e)}
+      onScroll={handleScroll}
+      className={styles.form}
+      style={scroll > 0 ? { position: "fixed" } : { position: "absolute" }}
+    >
       {isEdit ? <p className={styles.edit}>Редактирование</p> : null}
       {isEdit ? (
         <button
