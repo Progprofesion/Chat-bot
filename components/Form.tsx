@@ -94,7 +94,7 @@ const Form = () => {
       />
       <div className={styles.sendUpload}>
         <UploadAndDisplayImage />
-        <button className={styles.button} onClick={onClick}>
+        <button name="Send button" className={styles.button} onClick={onClick}>
           <svg
             width="16"
             height="16"

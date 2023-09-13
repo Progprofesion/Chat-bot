@@ -39,7 +39,7 @@ const Header = () => {
         />
       </div>
       <div className={styles.titleWrapp}>
-        <h1 className={styles.title}>
+        <title className={styles.title}>
           <Image
             src={titleImg}
             style={{
@@ -50,7 +50,7 @@ const Header = () => {
             alt="avatar"
           />
           Team Unicorns
-        </h1>
+        </title>
         <div className={styles.subtitle}>last seen 45 minutes ago</div>
       </div>
       <button className={styles.kebab}>
