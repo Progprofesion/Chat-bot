@@ -1,12 +1,13 @@
 .form {
     display: flex;
     align-items: flex-end;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     max-width: 100%;
     min-height: 48px;
     box-shadow: 0px 0px 0px 1px #E5E5EA inset;
     background-color: white;
+    z-index: 100;
 }
 
 .emoji {
