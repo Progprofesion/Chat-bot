@@ -94,7 +94,11 @@ const Form = () => {
       />
       <div className={styles.sendUpload}>
         <UploadAndDisplayImage />
-        <button name="Send button" className={styles.button} onClick={onClick}>
+        <button
+          aria-label="Send button"
+          className={styles.button}
+          onClick={onClick}
+        >
           <svg
             width="16"
             height="16"
