@@ -37,9 +37,9 @@ const Message = ({ time, message, id, img }: Imesage) => {
         {img && (
           <Image
             alt="not found"
-            width={150}
-            src={img1 ? (img as any) : img}
-            height={150}
+            width={50}
+            src={img1 ? img : img}
+            height={50}
           />
         )}
       </div>

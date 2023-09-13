@@ -56,3 +56,13 @@
     background-color: rgba(53, 98, 137, 0.491);
     padding-left: 7px;
 }
+
+.uploadImg {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.smile {
+    max-width: 15px;
+    max-height: 15px;
+}

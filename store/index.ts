@@ -18,7 +18,7 @@ interface UseStore {
   img: string | ArrayBuffer | null;
   isImg: boolean;
   setImg: (img: string | ArrayBuffer | null) => void;
-  setIsImg: (boolean: any) => void;
+  setIsImg: (boolean: boolean) => void;
   addTextMessage: (message: string) => void;
   addMessage: (messageData: Message) => void;
   changeIsbot: (boolean: boolean) => void;
