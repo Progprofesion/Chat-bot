@@ -1,7 +1,7 @@
 .messages {
     position: relative;
     max-width: 656px;
-    min-height: 100vh;
+    min-height: 960px;
     padding-bottom: 150px;
 }
 
@@ -29,4 +29,10 @@
 
 .userMessage {
     margin-top: 16px;
+}
+
+@media(max-width: 767px) {
+    .messages {
+        min-height: 100vh;
+    }
 }
