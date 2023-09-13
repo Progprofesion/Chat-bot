@@ -9,9 +9,10 @@ interface Imesage {
   message: string;
   id: number;
   img: string;
+  classForImg: string;
 }
 
-const Message = ({ time, message, id, img }: Imesage) => {
+const Message = ({ time, message, id, img, classForImg }: Imesage) => {
   const removeMessage = useStore((state) => state.removeMessage);
   const changeIsEdit = useStore((state) => state.changeIsEdit);
 
@@ -33,8 +34,16 @@ const Message = ({ time, message, id, img }: Imesage) => {
         </svg>
       </div>
       <div className={styles.content}>
+        {img && (
+          <Image
+            className={classForImg}
+            alt="not found"
+            width={16}
+            src={img}
+            height={16}
+          />
+        )}
         {message}
-        {img && <Image alt="not found" width={50} src={img} height={50} />}
       </div>
       <div className={styles.time}>
         <div className={styles.timeMarkWrapp}>

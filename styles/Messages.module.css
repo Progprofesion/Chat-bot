@@ -31,6 +31,12 @@
     margin-top: 16px;
 }
 
+.upImg {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
 @media(max-width: 767px) {
     .messages {
         min-height: 100vh;

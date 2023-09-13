@@ -18,7 +18,6 @@ const Form = () => {
   const editMessage = useStore((state) => state.editMessage);
   const id = useStore((state) => state.id);
   const isEdit = useStore((state) => state.isEdit);
-  const setIsImg = useStore((state) => state.setIsImg);
 
   let time = dayjs().format("h:mm A");
 
@@ -27,7 +26,6 @@ const Form = () => {
       | React.KeyboardEvent<Element>
       | React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void => {
-    setIsImg(false);
     if (e) {
       e.preventDefault();
     }
@@ -46,9 +44,14 @@ const Form = () => {
       e.preventDefault();
     }
 
-    addMessage({ message: "", time: time, isBot: false, img: smile });
+    addMessage({
+      message: "",
+      time: time,
+      isBot: false,
+      img: smile,
+      isSmile: true,
+    });
     changeIsbot(true);
-    setIsImg(true);
   };
 
   useEffect(() => {

@@ -6,13 +6,12 @@ import useStore from "../store";
 const UploadAndDisplayImage: React.FC = () => {
   const addMessage = useStore((state) => state.addMessage);
   const changeIsbot = useStore((state) => state.changeIsbot);
-  const setIsImg = useStore((state) => state.setIsImg);
-
   let time = dayjs().format("h:mm A");
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
+
     const reader = new FileReader();
     reader.onload = () => {
       addMessage({
@@ -20,9 +19,9 @@ const UploadAndDisplayImage: React.FC = () => {
         time: time,
         isBot: false,
         img: reader.result as string,
+        isSmile: false,
       });
       changeIsbot(true);
-      setIsImg(true);
     };
     reader.readAsDataURL(file);
   };

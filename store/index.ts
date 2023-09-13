@@ -7,6 +7,7 @@ interface Message {
   time: string;
   isBot: boolean;
   img?: string;
+  isSmile?: boolean;
 }
 
 interface UseStore {
@@ -15,8 +16,6 @@ interface UseStore {
   messages: Message[];
   isBotMessage: boolean;
   isEdit: boolean;
-  isImg: boolean;
-  setIsImg: (boolean: boolean) => void;
   addTextMessage: (message: string) => void;
   addMessage: (messageData: Message) => void;
   changeIsbot: (boolean: boolean) => void;
@@ -35,7 +34,6 @@ const useStore = create<UseStore>((set) => ({
   textMessage: "",
   isBotMessage: false,
   isEdit: false,
-  isImg: false,
   addMessage: (messageData) =>
     set((state) => ({
       messages: [
@@ -45,6 +43,7 @@ const useStore = create<UseStore>((set) => ({
           time: messageData.time,
           isBot: messageData.isBot,
           img: messageData.img,
+          isSmile: messageData.isSmile,
         },
         ...state.messages,
       ],
@@ -73,10 +72,6 @@ const useStore = create<UseStore>((set) => ({
       messages: state.messages.map((m) =>
         m.id === id ? { ...m, message: newMessage } : m
       ),
-    })),
-  setIsImg: (boolean) =>
-    set(() => ({
-      isImg: boolean,
     })),
 }));
 
