@@ -4,7 +4,6 @@ import mentios from "../assets/icons/mention.svg";
 import useStore from "../store";
 
 const UploadAndDisplayImage: React.FC = () => {
-  const setImg = useStore((state) => state.setImg);
   const addMessage = useStore((state) => state.addMessage);
   const changeIsbot = useStore((state) => state.changeIsbot);
   const setIsImg = useStore((state) => state.setIsImg);
@@ -16,7 +15,6 @@ const UploadAndDisplayImage: React.FC = () => {
     if (!file) return;
     const reader = new FileReader();
     reader.onload = () => {
-      setImg(reader.result);
       addMessage({
         message: "",
         time: time,

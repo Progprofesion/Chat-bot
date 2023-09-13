@@ -15,9 +15,7 @@ interface UseStore {
   messages: Message[];
   isBotMessage: boolean;
   isEdit: boolean;
-  img: string | ArrayBuffer | null;
   isImg: boolean;
-  setImg: (img: string | ArrayBuffer | null) => void;
   setIsImg: (boolean: boolean) => void;
   addTextMessage: (message: string) => void;
   addMessage: (messageData: Message) => void;
@@ -37,7 +35,6 @@ const useStore = create<UseStore>((set) => ({
   textMessage: "",
   isBotMessage: false,
   isEdit: false,
-  img: "",
   isImg: false,
   addMessage: (messageData) =>
     set((state) => ({
@@ -76,10 +73,6 @@ const useStore = create<UseStore>((set) => ({
       messages: state.messages.map((m) =>
         m.id === id ? { ...m, message: newMessage } : m
       ),
-    })),
-  setImg: (img) =>
-    set(() => ({
-      img: img,
     })),
   setIsImg: (boolean) =>
     set(() => ({
