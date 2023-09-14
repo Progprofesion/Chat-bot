@@ -5,7 +5,7 @@ interface Message {
   id?: number | undefined;
   message: string;
   time: string;
-  isBot: boolean;
+  isBot?: boolean;
   img?: string;
   isSmile?: boolean;
 }

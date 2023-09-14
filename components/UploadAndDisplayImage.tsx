@@ -17,9 +17,7 @@ const UploadAndDisplayImage: React.FC = () => {
       addMessage({
         message: "",
         time: time,
-        isBot: false,
         img: reader.result as string,
-        isSmile: false,
       });
       changeIsbot(true);
     };

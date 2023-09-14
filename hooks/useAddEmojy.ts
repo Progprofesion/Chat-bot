@@ -13,7 +13,6 @@ const useAddEmoji = (): ((e: React.MouseEvent<HTMLButtonElement>) => void) => {
     addMessage({
       message: "",
       time: time,
-      isBot: false,
       img: smile,
       isSmile: true,
     });

@@ -1,23 +1,35 @@
 import dayjs from "dayjs";
 import useStore from "../store";
 
-const useOnClick = () => {
+interface IonClick {
+  (
+    e:
+      | React.KeyboardEvent<Element>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void;
+}
+
+const useOnClick: () => IonClick = () => {
+  // Состояние режима редкатирвоания
   const isEdit = useStore((state) => state.isEdit);
-  const id = useStore((state) => state.id);
-  const textMessage = useStore((state) => state.textMessage);
-  const editMessage = useStore((state) => state.editMessage);
+  // Переключение режима редактирования
   const changeIsEdit = useStore((state) => state.changeIsEdit);
-  const addMessage = useStore((state) => state.addMessage);
+  // id сообщения
+  const id = useStore((state) => state.id);
+  // Текущее состояние ввода
+  const textMessage = useStore((state) => state.textMessage);
+  // Изменить состояние ввод
   const addTextMessage = useStore((state) => state.addTextMessage);
+  // Изменить сообщение
+  const editMessage = useStore((state) => state.editMessage);
+  // Отправляет сообщение
+  const addMessage = useStore((state) => state.addMessage);
+  // Добавляет ответ бота
   const changeIsbot = useStore((state) => state.changeIsbot);
 
   let time = dayjs().format("h:mm A");
 
-  const onClick = (
-    e:
-      | React.KeyboardEvent<Element>
-      | React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void => {
+  const onClick: IonClick = (e) => {
     if (e) {
       e.preventDefault();
     }
@@ -25,7 +37,7 @@ const useOnClick = () => {
       editMessage(id, textMessage);
       changeIsEdit(false);
     } else if (textMessage) {
-      addMessage({ message: textMessage, time: time, isBot: false });
+      addMessage({ message: textMessage, time: time });
       changeIsbot(true);
     }
     addTextMessage("");
