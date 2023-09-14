@@ -24,6 +24,7 @@ class MyDocument extends Document {
             href="data:image/x-icon"
           ></link>
         </Head>
+        {/* <body onWheel={(e) => setWhell(e.pageY)}> */}
         <body>
           <Main />
           <NextScript />

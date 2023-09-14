@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import styles from "../styles/Form.module.css";
 import smile from "../assets/icons/smiley.svg";
 import useStore from "../store";
+import useHandleScroll from "../hooks/useHandleScroll";
 
 const Form = () => {
   const messages = useStore((state) => state.messages);
@@ -70,27 +71,21 @@ const Form = () => {
     }
   };
 
-  const [scroll, setScroll] = useState(0);
-  useEffect(() => {
-    if (document.body.clientHeight > window.innerHeight) {
-      setScroll(100);
-    }
+  const [showScrollbar, setShowScrollbar] = useState(false);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [scroll]);
-  const handleScroll = () => {
-    setScroll(window.scrollY);
-  };
-
-  // console.log(scroll);
+  useHandleScroll(setShowScrollbar);
 
   return (
     <form
-      onWheel={(e) => console.log(e)}
-      onScroll={handleScroll}
       className={styles.form}
-      style={scroll > 0 ? { position: "fixed" } : { position: "absolute" }}
+      style={
+        showScrollbar
+          ? {
+              position: "fixed",
+              // border: "1px solid #c6e7ff54",
+            }
+          : { position: "absolute" }
+      }
     >
       {isEdit ? <p className={styles.edit}>Редактирование</p> : null}
       {isEdit ? (
