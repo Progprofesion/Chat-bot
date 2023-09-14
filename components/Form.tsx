@@ -7,6 +7,8 @@ import styles from "../styles/Form.module.css";
 import smile from "../assets/icons/smiley.svg";
 import useStore from "../store";
 import useHandleScroll from "../hooks/useHandleScroll";
+import addEmojy from "../utils/addEmogy";
+import useAddEmojy from "../hooks/useAddEmojy";
 
 const Form = () => {
   const messages = useStore((state) => state.messages);
@@ -40,21 +42,6 @@ const Form = () => {
     addTextMessage("");
   };
 
-  const emojy = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    if (e) {
-      e.preventDefault();
-    }
-
-    addMessage({
-      message: "",
-      time: time,
-      isBot: false,
-      img: smile,
-      isSmile: true,
-    });
-    changeIsbot(true);
-  };
-
   useEffect(() => {
     if (isBotMessage) {
       addMessage({ message: "Hello World!", time: time, isBot: true });
@@ -74,6 +61,8 @@ const Form = () => {
   const [showScrollbar, setShowScrollbar] = useState(false);
 
   useHandleScroll(setShowScrollbar);
+
+  const addEmojy = useAddEmojy();
 
   return (
     <form
@@ -99,7 +88,7 @@ const Form = () => {
           X
         </button>
       ) : null}
-      <button onClick={emojy} className={styles.emoji}>
+      <button onClick={(e) => addEmojy(e)} className={styles.emoji}>
         <Image src={smile} alt="emojy" />
       </button>
       <TextArea
