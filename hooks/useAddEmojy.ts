@@ -2,11 +2,11 @@ import useStore from "../store";
 import smile from "../assets/icons/smiley.svg";
 import dayjs from "dayjs";
 
-const useAddEmojy = (): any => {
+const useAddEmoji = (): ((e: React.MouseEvent<HTMLButtonElement>) => void) => {
   const addMessage = useStore((state) => state.addMessage);
   const changeIsbot = useStore((state) => state.changeIsbot);
 
-  const emojy = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleEmoji = (e: React.MouseEvent<HTMLButtonElement>): void => {
     let time = dayjs().format("h:mm A");
     if (e) e.preventDefault();
 
@@ -20,7 +20,7 @@ const useAddEmojy = (): any => {
     changeIsbot(true);
   };
 
-  return emojy;
+  return handleEmoji;
 };
 
-export default useAddEmojy;
+export default useAddEmoji;
