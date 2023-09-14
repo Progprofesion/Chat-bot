@@ -1,55 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import TextArea from "./TextArea";
 import UploadAndDisplayImage from "../components/UploadAndDisplayImage";
-import dayjs from "dayjs";
 import styles from "../styles/Form.module.css";
 import smile from "../assets/icons/smiley.svg";
 import useStore from "../store";
 import useHandleScroll from "../hooks/useHandleScroll";
-import addEmojy from "../utils/addEmogy";
 import useAddEmojy from "../hooks/useAddEmojy";
+import useOnClick from "../hooks/useOnClick";
+import useBot from "../hooks/useBot";
 
 const Form = () => {
-  const messages = useStore((state) => state.messages);
-  const addMessage = useStore((state) => state.addMessage);
-  const changeIsbot = useStore((state) => state.changeIsbot);
-  const isBotMessage = useStore((state) => state.isBotMessage);
+  const [showScrollbar, setShowScrollbar] = useState(false);
+
   const changeIsEdit = useStore((state) => state.changeIsEdit);
   const addTextMessage = useStore((state) => state.addTextMessage);
   const textMessage = useStore((state) => state.textMessage);
-  const editMessage = useStore((state) => state.editMessage);
-  const id = useStore((state) => state.id);
   const isEdit = useStore((state) => state.isEdit);
-
-  let time = dayjs().format("h:mm A");
-
-  const onClick = (
-    e:
-      | React.KeyboardEvent<Element>
-      | React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void => {
-    if (e) {
-      e.preventDefault();
-    }
-    if (isEdit) {
-      editMessage(id, textMessage);
-      changeIsEdit(false);
-    } else if (textMessage) {
-      addMessage({ message: textMessage, time: time, isBot: false });
-      changeIsbot(true);
-    }
-    addTextMessage("");
-  };
-
-  useEffect(() => {
-    if (isBotMessage) {
-      addMessage({ message: "Hello World!", time: time, isBot: true });
-      changeIsbot(!isBotMessage);
-    }
-    let data = JSON.stringify(messages);
-    localStorage.setItem("messages", data);
-  }, [messages]);
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
@@ -58,10 +25,10 @@ const Form = () => {
     }
   };
 
-  const [showScrollbar, setShowScrollbar] = useState(false);
-
   useHandleScroll(setShowScrollbar);
+  useBot();
 
+  const onClick = useOnClick();
   const addEmojy = useAddEmojy();
 
   return (
@@ -71,7 +38,6 @@ const Form = () => {
         showScrollbar
           ? {
               position: "fixed",
-              // border: "1px solid #c6e7ff54",
             }
           : { position: "absolute" }
       }

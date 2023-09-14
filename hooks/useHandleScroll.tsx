@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 const useHandleScroll = (setShowScrollbar: any) => {
   const handleScroll = () => {
     const scrollTop =
@@ -16,9 +15,3 @@ const useHandleScroll = (setShowScrollbar: any) => {
 };
 
 export default useHandleScroll;
-
-// window.addEventListener("scroll", handleScroll);
-
-// return () => {
-//   window.removeEventListener("scroll", handleScroll);
-// };
