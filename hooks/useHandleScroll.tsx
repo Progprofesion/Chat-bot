@@ -1,4 +1,8 @@
-const useHandleScroll = (setShowScrollbar: any) => {
+import { useEffect } from "react";
+
+const useHandleScroll = (
+  setShowScrollbar: (value: boolean) => void
+): (() => void) => {
   const handleScroll = () => {
     const scrollTop =
       window.scrollY ||
@@ -7,7 +11,12 @@ const useHandleScroll = (setShowScrollbar: any) => {
     setShowScrollbar(scrollTop > 0);
   };
 
-  window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [setShowScrollbar]);
 
   return () => {
     window.removeEventListener("scroll", handleScroll);
