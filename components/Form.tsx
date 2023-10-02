@@ -2,13 +2,13 @@ import { useState } from "react";
 import Image from "next/image";
 import TextArea from "./TextArea";
 import UploadAndDisplayImage from "../components/UploadAndDisplayImage";
-import styles from "../styles/Form.module.css";
-import smile from "../assets/icons/smiley.svg";
-import useStore from "../store";
 import useHandleScroll from "../hooks/useHandleScroll";
 import useAddEmojy from "../hooks/useAddEmojy";
 import useOnClick from "../hooks/useOnClick";
 import useBot from "../hooks/useBot";
+import styles from "../styles/Form.module.css";
+import smile from "../assets/icons/smiley.svg";
+import useStore from "../store";
 
 const Form = () => {
   const [showScrollbar, setShowScrollbar] = useState(false);

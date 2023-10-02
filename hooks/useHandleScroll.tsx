@@ -8,7 +8,7 @@ const useHandleScroll = (
       window.scrollY ||
       document.documentElement.scrollTop ||
       document.body.scrollTop;
-    setShowScrollbar(scrollTop > 0);
+    setShowScrollbar(scrollTop >= 0);
   };
 
   useEffect(() => {
